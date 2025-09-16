@@ -1,99 +1,118 @@
 # Call Analysis System
 
-Automated system for processing business call transcripts into structured analysis and email communications using Claude Code.
+## Overview
+
+The Call Analysis System is an automated workflow tool designed to transform business call transcripts into structured, actionable insights. Leveraging Claude Code's AI capabilities, this system generates comprehensive call analyses and targeted email communications.
+
+## Key Features
+
+- 🔍 Intelligent Call Analysis
+- 📧 Automated Email Generation
+- 📂 Structured Output Management
+- 🤖 AI-Powered Content Creation
+
+## Prerequisites
+
+- Bash shell
+- Claude Code CLI
+- Text transcript of business calls
+
+## Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/your-org/call-analysis-system.git
+cd call-analysis-system
+```
+
+2. Ensure scripts are executable:
+```bash
+chmod +x scripts/*.sh
+```
 
 ## Quick Start
 
-### Two Main Commands
+### 1. Generate Call Analysis
 
-1. **Generate Call Analysis**
-   ```bash
-   ./scripts/generate-call-analysis.sh <transcript-file>
-   ```
-
-2. **Generate Emails**
-   ```bash
-   ./scripts/generate-emails.sh <call-directory>
-   ```
-
-## Project Structure
-
-```
-call-analysis-system/
-├── templates/
-│   ├── call-analysis-template.md       # Template for call analysis
-│   ├── email-templates/
-│   │   ├── stakeholder-update.md       # Stakeholder email template
-│   │   ├── action-items.md             # Action items email template
-│   │   └── next-meeting-goals.md       # Next meeting email template
-│   └── email-tone-guide.md             # Communication tone guide
-├── scripts/
-│   ├── generate-call-analysis.sh       # Command 1: Generate analysis
-│   └── generate-emails.sh              # Command 2: Generate emails
-├── output/                             # Generated call directories
-└── README.md
-```
-
-## Workflow
-
-### Step 1: Analyze Call Transcript
+Process a call transcript:
 ```bash
-./scripts/generate-call-analysis.sh my-transcript.txt
+./scripts/generate-call-analysis.sh <path-to-transcript>
 ```
-- Prompts for call details (title, date, duration, participants)
-- Creates organized directory: `output/{call-title-and-date}/`
-- Prepares analysis prompt for Claude Code
-- Copies transcript to call directory
 
-### Step 2: Use Claude Code to Generate Analysis
-1. Run `claude code`
-2. Navigate to the created call directory
-3. Read `analysis_prompt.txt`
-4. Generate `call-analysis.md` based on the prompt
-
-### Step 3: Generate Email Communications
+#### Example
 ```bash
-./scripts/generate-emails.sh output/{call-title-and-date}
+./scripts/generate-call-analysis.sh transcripts/client-meeting.txt
 ```
-- Creates `emails/` subdirectory
-- Generates prompts for three email types
-- Copies tone guide to call directory
 
-### Step 4: Use Claude Code to Generate Emails
-1. Navigate to the `emails/` directory
-2. Process each prompt file to generate:
-   - `stakeholder-update-email.md`
-   - `action-items-email.md`
-   - `next-meeting-goals-email.md`
+### 2. Generate Email Communications
+
+Create email drafts from call analysis:
+```bash
+./scripts/generate-emails.sh <output-directory>
+```
+
+#### Example
+```bash
+./scripts/generate-emails.sh output/client-meeting-2025-09-15
+```
+
+## Workflow Details
+
+1. **Transcript Processing**
+   - Extracts key call details
+   - Creates organized output directory
+   - Prepares analysis prompts
+
+2. **AI-Powered Analysis**
+   - Generates comprehensive call summary
+   - Identifies key decisions and action items
+   - Creates structured markdown report
+
+3. **Email Generation**
+   - Produces multiple email types:
+     - Stakeholder update
+     - Action items
+     - Next meeting goals
 
 ## Output Structure
 
-After running both commands and Claude Code generation:
-
 ```
 output/{call-title-and-date}/
-├── transcript.txt                      # Original transcript
-├── call-analysis.md                    # Generated analysis
-├── email-tone-guide.md                 # Communication guidelines
+├── transcript.txt
+├── call-analysis.md
+├── email-tone-guide.md
 └── emails/
-    ├── stakeholder-update-email.md     # Generated stakeholder email
-    ├── action-items-email.md           # Generated action items email
-    └── next-meeting-goals-email.md     # Generated next meeting email
+    ├── stakeholder-update-email.md
+    ├── action-items-email.md
+    └── next-meeting-goals-email.md
 ```
 
-## Features
+## Best Practices
 
-- **Automated Directory Structure**: Organized by call title and date
-- **Comprehensive Analysis**: Extracts key decisions, action items, next steps
-- **Multiple Email Types**: Stakeholder updates, action items, meeting goals
-- **Consistent Tone**: Professional communication guidelines
-- **Claude Code Integration**: Leverages AI for intelligent content generation
-- **Template-Based**: Customizable templates for consistent output
+- Use consistent transcript formatting
+- Choose descriptive call titles
+- Review AI-generated content before sending
+- Customize templates to match organizational style
 
-## Usage Tips
+## Customization
 
-- Keep transcript files in a consistent format
-- Use descriptive call titles for better organization
-- Review generated content before sending emails
-- Customize templates as needed for your organization
-- Use consistent naming conventions for better tracking
+Modify templates in the `templates/` directory to:
+- Adjust analysis structure
+- Refine email communication style
+- Add organization-specific sections
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Create a Pull Request
+
+## License
+
+[Include your license information here]
+
+## Support
+
+For issues or questions, please [add your support contact or method]
