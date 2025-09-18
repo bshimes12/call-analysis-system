@@ -89,6 +89,3 @@ Modify templates in the `templates/` directory to:
 
 [Include your license information here]
 
-## Support
-
-For issues or questions, please [add your support contact or method]
