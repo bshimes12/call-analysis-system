@@ -87,5 +87,5 @@ Modify templates in the `templates/` directory to:
 
 ## License
 
-[Include your license information here]
+MIT License
 
